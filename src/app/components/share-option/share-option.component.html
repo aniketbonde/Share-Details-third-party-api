@@ -1,0 +1,36 @@
+<div class="card-container">
+    <a class="card" (click)="assignComponent('AAPL')" href="#">
+      <span>Apple Inc</span>
+    </a>
+  
+    <a class="card" (click)="assignComponent('MSFT')" href="#">
+      <span>Microsoft Corp</span>
+    </a>
+  
+    <a class="card" (click)="assignComponent('GOOG')" href="#">
+      <span>Alphabet Inc Class C</span>
+    </a>
+  </div>
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="open">
+        <th mat-header-cell *matHeaderCellDef>Open</th>
+        <td mat-cell *matCellDef="let element">{{ element.open }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef>Symbol</th>
+        <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
